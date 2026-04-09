@@ -1,0 +1,20 @@
+name: Docker CI
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+        -name: Get Code
+         uses: actions/checkout@v4
+
+        -name: Build Image
+        run: docker build -t node-app .
+
+         -name: Run and check
+          run:
+            docker run -d -p 8080:8080 --name test_container node-app
+            sleep 5 
+            curl localhost:8080
