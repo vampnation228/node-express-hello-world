@@ -15,7 +15,7 @@ jobs:
 
       - name: Run and Check
         run: |
-          docker run -d -p 8080:8080 --name test_container node-app
+          docker run -d -p 8080:3000 --name test_container node-app
           sleep 10
           docker logs test_container
           curl --verbose localhost:8080
