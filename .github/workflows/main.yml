@@ -16,5 +16,11 @@ jobs:
       - name: Run and Check
         run: |
           docker run -d -p 8080:8080 --name test_container node-app
+<<<<<<< HEAD
           sleep 5
           curl localhost:8080
+=======
+          sleep 10
+          docker logs test_container
+          curl --verbose localhost:8080
+>>>>>>> fa9addd ("docker ci22")
